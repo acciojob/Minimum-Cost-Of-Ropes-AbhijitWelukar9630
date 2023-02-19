@@ -6,17 +6,27 @@
 </head>
 
 <body>
-    <form>
-        <label for="rope-lengths">Enter rope lengths:</label>
-        <input type="text" id="rope-lengths">
-        <button type="button" onclick="calculateMinCost()">Calculate</button>
-      </form>
-      <div id="result"></div>
+      <form>
+  <label for="ropes">Enter the lengths of the ropes (comma-separated):</label>
+  <input type="text" id="ropes">
+  <button type="button" onclick="findMinCost()">Find Minimum Cost</button>
+</form>
+<div id="result"></div>
 
 <script>
-    type="text/javascript" src="./script.js"
+  function findMinCost() {
+    // Get the input value and split it into an array of integers
+    const ropesInput = document.getElementById("ropes").value;
+    const ropes = ropesInput.split(",").map(Number);
 
-  </script>
+    // Calculate the minimum cost of ropes
+    const minCost = minCostOfRopes(ropes);
+
+    // Display the result
+    document.getElementById("result").innerHTML = `The minimum cost of connecting the ropes is ${minCost}.`;
+  }
+</script>
+
   
 
 </body>
